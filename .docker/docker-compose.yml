@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+  elixir-phenix:
+    build:
+        context: .
+        dockerfile: ./elixir/Dockerfile
+    ports:
+      - '4000:4000'
+    # command: mix phx.server
+    tty: true
+    environment:
+      - MIX_ENV=dev
+      - PORT=4000
+    volumes:
+      - ../:/app
+    working_dir: /app/src
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
