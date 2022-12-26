@@ -4,19 +4,18 @@ Elixir Docker
 ## Version
 * Elixir 1.14.2
 * Phenix 1.6.3
-* Node 16
 
 ## First Boot
 
 ### Docker Up
 ```
 cd .docker
-docker compose up
+docker compose up -d
 ```
 
 ### Enter Docker Container
 ```
-docker exec -it elixir-phenix bash
+docker-compose run elixir-phenix bash
 ```
 
 ### phenix new Project
@@ -51,6 +50,11 @@ mix ecto.create
 ### DB Migration 
 ```
 mix ecto.migrate
+```
+
+### Dependencies Compile & DB Create & DB Migration 
+```
+mix deps.compile && mix ecto.create && mix ecto.migrate
 ```
 
 ### IP Setting
