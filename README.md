@@ -21,7 +21,17 @@ docker-compose run elixir-phenix bash
 ### phenix new Project
 ```
 cd ./src
-mix phx.new . --app my_app
+mix phx.new . --app demo
+```
+
+Use DB Mysql
+```
+mix phx.new . --app demo --database mysql
+```
+
+Do not use DB
+```
+mix phx.new . --app  demo --no-ecto
 ```
 
 ### DB Setting
